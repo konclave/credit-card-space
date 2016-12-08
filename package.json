@@ -1,0 +1,19 @@
+{
+  "name": "credit-card-space",
+  "version": "1.0.0",
+  "description": "Simple plugin that adds space after every 4 digits in credit card input and restricts input for numbers only",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cc",
+    "card",
+    "format",
+    "formatter"
+  ],
+  "author": "Ivan Vasilyev",
+  "license": "MIT",
+  "dependencies": {
+  }
+}
