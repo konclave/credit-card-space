@@ -4,6 +4,7 @@
   "description": "Simple plugin that adds space after every 4 digits in credit card input and restricts input for numbers only",
   "main": "index.js",
   "scripts": {
+    "build": "babel src -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -15,5 +16,8 @@
   "author": "Ivan Vasilyev",
   "license": "MIT",
   "dependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-preset-latest": "^6.16.0"
   }
 }
