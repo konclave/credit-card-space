@@ -1,7 +1,7 @@
 class CreditCardSpace {
   constructor(element) {
-    if (element instanceof Element) {
-      throw('CreditCardSpace can be attached to an Element only');
+    if (!(element instanceof Element)) {
+      throw new Error('CreditCardSpace can be attached to an Element only');
     }
     this.element = element;
     attachEvents(element);
@@ -19,7 +19,7 @@ class CreditCardSpace {
 
 function attachEvents(element) {
   element.addEventListener('input', inputHandler);
-  element.addEventListener('keydown', keyDownHandler)
+  element.addEventListener('keydown', keyDownHandler);
 }
 
 function inputHandler(event) {
@@ -45,12 +45,12 @@ function keyDownHandler(event) {
  * @param {HTMLInputElement} input
  */
 function formatInputValue(input) {
-    const position = getCursorPosition(input);
-    const srcLength = input.value.length;
-    const formatted = formatCreditCard(input.value);
-    const diff = formatted.length - srcLength;
-    input.value = formatted;
-    setCursorPosition(input, position + diff);
+  const position = getCursorPosition(input);
+  const srcLength = input.value.length;
+  const formatted = formatCreditCard(input.value);
+  const diff = formatted.length - srcLength;
+  input.value = formatted;
+  setCursorPosition(input, position + diff);
 }
 
 /**
@@ -74,7 +74,7 @@ function getCursorPosition(input) {
  * @param {number} pos
  */
 function setCursorPosition(input, pos) {
-  if (!(element && element.setSelectionRange)) {
+  if (!(input && input.setSelectionRange)) {
     return;
   }
   input.setSelectionRange(pos, pos);
@@ -87,7 +87,7 @@ function setCursorPosition(input, pos) {
  * @return {string}
  */
 function formatCreditCard(str) {
-  const clean = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+  const clean = str.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
   const matches = clean.match(/\d{4,19}/g);
   const match = (matches && matches[0]) || '';
   const parts = [];
@@ -98,8 +98,8 @@ function formatCreditCard(str) {
   if (parts.length) {
     return parts.join(' ');
   }
-  return value;
- }
+  return str;
+}
 
 /**
  * Clears spaces from formatted credit card number
@@ -109,3 +109,5 @@ function formatCreditCard(str) {
 function clearFormattedCardNumber(str) {
   return str.replace(/ /g, '');
 }
+
+export default CreditCardSpace;
