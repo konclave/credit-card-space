@@ -1,6 +1,6 @@
 {
   "name": "credit-card-space",
-  "version": "1.0.2",
+  "version": "1.0.3-pre",
   "description": "Simple plugin that adds space after every 4 digits in credit card input and restricts input for numbers only",
   "main": "dest/index.js",
   "scripts": {
