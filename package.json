@@ -1,11 +1,13 @@
 {
   "name": "credit-card-space",
-  "version": "1.0.5",
+  "version": "0.0.0-development",
   "description": "Simple plugin that adds space after every 4 digits in credit card input and restricts input for numbers only",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",
-    "test": "jest --coverage"
+    "commit": "git-cz",
+    "test": "jest --coverage",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "keywords": [
     "cc",
@@ -23,10 +25,23 @@
     "babel-cli": "^6.18.0",
     "babel-jest": "^18.0.0",
     "babel-preset-latest": "^6.16.0",
+    "commitizen": "^2.9.2",
+    "cz-conventional-changelog": "^1.2.0",
     "jest": "^18.0.0",
-    "jest-cli": "^18.0.0"
+    "jest-cli": "^18.0.0",
+    "semantic-release": "^6.3.2",
+    "semantic-release-cli": "^3.0.2"
   },
   "jest": {
     "verbose": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/konclave/credit-card-space.git"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }  
   }
 }
