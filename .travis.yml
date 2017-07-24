@@ -5,15 +5,17 @@ cache:
 notifications:
   email: false
 node_js:
+  - '8'
   - '7'
   - '6'
   - '4'
 script:
-  - yarn test
-  - yarn build
-  - yarn build:min
+  - npm test
+  - npm run build
+  - npm run build:umd
+  - npm run build:min
 after_success:
-  - yarn run semantic-release
+  - npm run semantic-release
 branches:
   only:
     - master

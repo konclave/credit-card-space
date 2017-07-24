@@ -1,8 +1,3 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 /**
  * Formats input value with a space after 4 digits and keeps cursor on it current position after input value's been changed
  * @param {HTMLInputElement} input
@@ -73,4 +68,4 @@ function clearFormattedCardNumber(str) {
   return str.replace(/ /g, '');
 }
 
-exports.default = { formatInputValue: formatInputValue, getCursorPosition: getCursorPosition, setCursorPosition: setCursorPosition, formatCreditCard: formatCreditCard, clearFormattedCardNumber: clearFormattedCardNumber };
+export default { formatInputValue: formatInputValue, getCursorPosition: getCursorPosition, setCursorPosition: setCursorPosition, formatCreditCard: formatCreditCard, clearFormattedCardNumber: clearFormattedCardNumber };

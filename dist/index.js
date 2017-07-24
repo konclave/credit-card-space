@@ -1,18 +1,8 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _utils = require('./utils');
-
-var _utils2 = _interopRequireDefault(_utils);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+import utils from './utils';
 
 var CreditCardSpace = function () {
   function CreditCardSpace(element) {
@@ -28,7 +18,7 @@ var CreditCardSpace = function () {
   _createClass(CreditCardSpace, [{
     key: 'value',
     value: function value() {
-      return _utils2.default.clearFormattedCardNumber(this.element.value);
+      return utils.clearFormattedCardNumber(this.element.value);
     }
   }, {
     key: 'destroy',
@@ -47,19 +37,19 @@ function attachEvents(element) {
 }
 
 function inputHandler(event) {
-  _utils2.default.formatInputValue(event.target);
+  utils.formatInputValue(event.target);
 }
 
 function keyDownHandler(event) {
-  var position = _utils2.default.getCursorPosition(event.target);
+  var position = utils.getCursorPosition(event.target);
   if (event.keyCode === 46 && event.target.value.charAt(position) === ' ') {
     // delete
     position += 1;
-    _utils2.default.setCursorPosition(event.target, position);
+    utils.setCursorPosition(event.target, position);
   } else if (event.keyCode === 8 && event.target.value.charAt(position - 1) === ' ') {
     // backspace
     position -= 1;
-    _utils2.default.setCursorPosition(event.target, position);
+    utils.setCursorPosition(event.target, position);
   } else if (event.keyCode === 90 && (event.ctrlKey || event.metaKey)) {
     // ctrl/cmd Z
     event.preventDefault();
@@ -67,4 +57,4 @@ function keyDownHandler(event) {
   }
 }
 
-exports.default = CreditCardSpace;
+export default CreditCardSpace;

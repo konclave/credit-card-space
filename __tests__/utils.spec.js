@@ -9,7 +9,7 @@ describe('utils', () => {
     input.value = card;
     input.focus();
   });
-  
+
   describe('clearFormattedCardNumber', () => {
     it('should clear all spaces from card number string', () => {
       expect(utils.clearFormattedCardNumber('1111 2222 3333 4444 555')).toBe('1111222233334444555');
@@ -18,7 +18,7 @@ describe('utils', () => {
 
   describe('formatCreditCard', () => {
     it('should add space after every four digits in string', () => {
-      expect(utils.formatCreditCard('1111222233334444555')).toBe('1111 2222 3333 4444 555'); 
+      expect(utils.formatCreditCard('1111222233334444555')).toBe('1111 2222 3333 4444 555');
     });
   });
 
@@ -44,5 +44,13 @@ describe('utils', () => {
       utils.formatInputValue(input);
       expect(input.value).toBe('1111 2222 3333 4444 555');
     })
-  })
+  });
+
+  describe('formatInputValue', () => {
+    it('shouldn\'t add space after first 4 digits', () => {
+      input.value = '1234';
+      utils.formatInputValue(input);
+      expect(input.value).toBe('1234');
+    })
+  });
 });
