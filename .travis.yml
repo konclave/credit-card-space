@@ -12,8 +12,6 @@ node_js:
 script:
   - npm test
   - npm run build
-  - npm run build:umd
-  - npm run build:min
 after_success:
   - npm run semantic-release
 branches:

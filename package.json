@@ -6,7 +6,9 @@
   "module": "dist/index.js",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "babel src -d dist",
+    "postpublish": "publish-latest",
+    "build": "npm run build:transpile && npm run build:umd && npm run build:min",
+    "build:transpile": "babel src -d dist",
     "build:umd": "rollup -c",
     "build:min": "uglifyjs dist/credit-card-space.js -o dist/credit-card-space.min.js",
     "commit": "git-cz",
@@ -34,6 +36,7 @@
     "cz-conventional-changelog": "2.0.0",
     "jest": "20.0.4",
     "jest-cli": "20.0.4",
+    "publish-latest": "^1.1.2",
     "rimraf": "^2.6.1",
     "rollup": "^0.45.2",
     "rollup-plugin-babel": "^2.7.1",
