@@ -20,7 +20,11 @@ class CreditCardSpace {
 }
 
 function attachEvents(element) {
-  element.addEventListener('input', inputHandler);
+  element.addEventListener('input', (event) => {
+    setTimeout(
+      () => inputHandler(event)
+    );
+  });
   element.addEventListener('keydown', keyDownHandler);
 }
 
