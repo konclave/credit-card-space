@@ -12,8 +12,6 @@
     "build:min": "uglifyjs dist/credit-card-space.js -o dist/credit-card-space.min.js",
     "commit": "git-cz",
     "test": "jest --coverage --no-cache",
-    "prepublish": "npm run build",
-    "postpublish": "publish-latest",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "keywords": [
@@ -37,7 +35,6 @@
     "cz-conventional-changelog": "2.0.0",
     "jest": "20.0.4",
     "jest-cli": "20.0.4",
-    "publish-latest": "^1.1.2",
     "rimraf": "^2.6.1",
     "rollup": "^0.45.2",
     "rollup-plugin-babel": "^2.7.1",
