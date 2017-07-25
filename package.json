@@ -6,13 +6,14 @@
   "module": "dist/index.js",
   "scripts": {
     "prebuild": "rimraf dist",
-    "postpublish": "publish-latest",
     "build": "npm run build:transpile && npm run build:umd && npm run build:min",
     "build:transpile": "babel src -d dist",
     "build:umd": "rollup -c",
     "build:min": "uglifyjs dist/credit-card-space.js -o dist/credit-card-space.min.js",
     "commit": "git-cz",
     "test": "jest --coverage --no-cache",
+    "prepublish": "npm run build",
+    "postpublish": "publish-latest",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "keywords": [
