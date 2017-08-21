@@ -1,5 +1,5 @@
 /**
- * Formats input value with a space after 4 digits and keeps cursor on it current position after input value's been changed
+ * Formats input value with a space after 4 digits and keeps cursor on its current position after input value's been changed
  * @param {HTMLInputElement} input
  */
 function formatInputValue(input) {
