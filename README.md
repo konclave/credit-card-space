@@ -19,7 +19,7 @@ Add link into your page:
 <script src="node_modules/credit-card-space/dist/credit-card-space.min.js"></script>
 ```
 
-You've got global CreditCardSpace constractor:
+You've got global CreditCardSpace constructor:
 ```js
 var input = document.querySelector('input');
 var ccInput = new CreditCardSpace(input);
