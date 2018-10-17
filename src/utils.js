@@ -42,17 +42,15 @@ function setCursorPosition(input, pos) {
  * Formats string adding space after every for digits
  *
  * @param {string} str
+ * @param {string} pattern
  * @return {string}
  */
-function formatCreditCard(str) {
+function formatCreditCard(str, pattern = '4 4 4 4') {
   const clean = str.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
   const matches = clean.match(/\d{4,19}/g);
   const match = (matches && matches[0]) || '';
-  const parts = [];
+  const parts = splitByPattern(match, pattern);
 
-  for (let i = 0, length = match.length; i < length; i += 4) {
-    parts.push(match.substring(i, i + 4));
-  }
   if (parts.length) {
     return parts.join(' ');
   }
@@ -66,6 +64,38 @@ function formatCreditCard(str) {
  */
 function clearFormattedCardNumber(str) {
   return str.replace(/ /g, '');
+}
+
+/**
+ * Splits digits string to array of strings by pattern
+ * @param {string} digits
+ * @param {string} pattern
+ * @returns {array}
+ */
+function splitByPattern(digits, pattern) {
+  const chunks = pattern.split(' ');
+  return getSlices(digits, chunks);
+}
+
+/**
+ * splits digits string onto chunks length equal to pattern array elements
+ * @param {string} digits
+ * @param {array} pattern
+ * @returns {array}
+ */
+function getSlices(digits, pattern) {
+  if (pattern.length === 0) {
+    return digits.length ? [digits] : [];
+  }
+  if (digits.length === 0) {
+    return [];
+  }
+  const size = pattern.shift();
+  const part = digits.substring(0, size);
+  if (part.length < size) {
+    return [part];
+  }
+  return [part].concat(getSlices(digits.substring(size), pattern));
 }
 
 export default {formatInputValue, getCursorPosition, setCursorPosition, formatCreditCard, clearFormattedCardNumber}

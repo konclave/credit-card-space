@@ -12,13 +12,22 @@ describe('utils', () => {
 
   describe('clearFormattedCardNumber', () => {
     it('should clear all spaces from card number string', () => {
-      expect(utils.clearFormattedCardNumber('1111 2222 3333 4444 555')).toBe('1111222233334444555');
+      expect(utils.clearFormattedCardNumber('1111 2222 3333 4444 555')).toBe(card);
     });
   });
 
   describe('formatCreditCard', () => {
     it('should add space after every four digits in string', () => {
-      expect(utils.formatCreditCard('1111222233334444555')).toBe('1111 2222 3333 4444 555');
+      expect(utils.formatCreditCard(card)).toBe('1111 2222 3333 4444 555');
+    });
+    it('should add space after every digits in string according to pattern', () => {
+      expect(utils.formatCreditCard(card, '4 4 3 3 3 2')).toBe('1111 2222 333 344 445 55');
+    });
+    it('should leave last part not splitted if pattern is shorter then card', () => {
+      expect(utils.formatCreditCard(card, '4 4')).toBe('1111 2222 33334444555');
+    });
+    it('should split card event if it is shorter then pattern', () => {
+      expect(utils.formatCreditCard('1111222', '4 4 4 4 2')).toBe('1111 222');
     });
   });
 
