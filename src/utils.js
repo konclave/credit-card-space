@@ -5,7 +5,8 @@
 function formatInputValue(input) {
   const position = getCursorPosition(input);
   const srcLength = input.value.length;
-  const formatted = formatCreditCard(input.value);
+  const pattern = input.dataset.pattern || '4 4 4 4';
+  const formatted = formatCreditCard(input.value, pattern);
   const diff = formatted.length - srcLength;
   input.value = formatted;
   setCursorPosition(input, position + diff);
