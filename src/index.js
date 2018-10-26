@@ -7,6 +7,9 @@ class CreditCardSpace {
     }
     this.element = element;
     attachEvents(element);
+    if (element.value) {
+      utils.formatInputValue(element);
+    }
   }
 
   value() {
