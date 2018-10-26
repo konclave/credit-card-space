@@ -29,3 +29,5 @@ You've got global CreditCardSpace constructor:
 var input = document.querySelector('input');
 var ccInput = new CreditCardSpace(input);
 ```
+
+Try it on [test page](https://konclave.github.io/credit-card-space/)
