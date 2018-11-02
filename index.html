@@ -1,8 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head></head>
+<head>
+    <script src="https://cdn.jsdelivr.net/gh/konclave/credit-card-space/dist/credit-card-space.js"></script>
+    <style>
+        body {
+            font-family: 'PT Sans', 'Roboto', Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 0;
+        }
+        input {
+            font-size: 1rem;
+            padding: .5em 1em;
+            border-radius: 5px;
+            background: white;
+            border: 1px solid #999;
+        }
+    </style>
+</head>
 <body>
-    <h1>Hello world</h1>
-    <input type="text"/>
+    <h1>credit-card-space test page</h1>
+    <h2>With default no pattern param:</h2>
+    <input type="text" id="without_pattern"/>
+
+    <h2>With '4 6 5' pattern param</h2>
+    <input data-pattern="4 6 5" type="text" id="with_pattern" />
+
+    <h2>With preloaded card number</h2>
+    <input value="4111111111111111" type="text" id="with_value" />
+
+    <script>
+        const wo = new CreditCardSpace(document.querySelector('#without_pattern'))
+        const w = new CreditCardSpace(document.querySelector('#with_pattern'))
+        const wv = new CreditCardSpace(document.querySelector('#with_value'))
+    </script>
 </body>
 </html>

@@ -2,4 +2,3 @@ node_modules
 coverage
 *.swp
 HOWTO.md
-dist/
