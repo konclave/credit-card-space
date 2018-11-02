@@ -8,7 +8,9 @@
     "prebuild": "rimraf dist",
     "build": "rollup -c",
     "commit": "git-cz",
-    "test": "jest --coverage --no-cache"
+    "test": "jest --coverage --no-cache",
+    "preversion": "npm test && npm run build",
+    "postversion": "git push origin master --tags"
   },
   "keywords": [
     "cc",
