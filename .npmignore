@@ -1,3 +1,4 @@
 !dist/
 docs/
 __tests__/
+coverage/
