@@ -2,8 +2,10 @@
   "name": "credit-card-space",
   "version": "1.1.0",
   "description": "Simple plugin that adds space after every 4 digits in credit card input and restricts input for numbers only",
-  "main": "dist/credit-card-space.js",
-  "module": "dist/index.js",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "browser": "dist/credit-card-space.js",
+  "files": ["dist/*", "README.md", "package.json", "LICENSE"],
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "rollup --config rollup.config.js --bundleConfigAsCjs",
