@@ -20,7 +20,7 @@ const cardNumber = ccSpace.value();
 ### In browser
 Add link into your page:
 ```html
-<script src="node_modules/credit-card-space/dist/credit-card-space.min.js"></script>
+<script src="node_modules/credit-card-space/dist/credit-card-space.js"></script>
 <input data-pattern="4 2 2 2 2 4">
 ```
 
