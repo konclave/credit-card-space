@@ -3,3 +3,4 @@ coverage
 *.swp
 HOWTO.md
 dist
+.pnpm-debug.log

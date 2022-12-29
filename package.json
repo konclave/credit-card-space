@@ -6,7 +6,7 @@
   "module": "dist/index.js",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "rollup -c",
+    "build": "rollup --config rollup.config.js --bundleConfigAsCjs",
     "commit": "git-cz",
     "test": "jest --coverage --no-cache",
     "preversion": "npm test && npm run build",
@@ -39,6 +39,7 @@
   },
   "jest": {
     "verbose": true,
+    "testEnvironment": "jsdom",
     "transform": {
       "^.+\\.js$": "./jest.transform.js"
     }

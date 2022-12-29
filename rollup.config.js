@@ -1,15 +1,18 @@
-import babel from 'rollup-plugin-babel';
-import { uglify } from 'rollup-plugin-uglify';
+import { babel } from '@rollup/plugin-babel';
+import { terser } from 'rollup-plugin-terser';
 
 export default {
-  entry: 'src/index.js',
-  format: 'umd',
+  input: 'src/index.js',
   plugins: [
     babel({
+      babelHelpers: 'bundled',
       exclude: 'node_modules/**' // only transpile our source code
     }),
-    uglify()
+    terser()
   ],
-  dest: 'dist/credit-card-space.js',
-  moduleName: "CreditCardSpace"
+  output: {
+    file: 'dist/credit-card-space.js',
+    format: 'umd',
+    name: 'CreditCardSpace'
+  },
 };
